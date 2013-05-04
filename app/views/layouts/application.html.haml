@@ -1,0 +1,26 @@
+!!! 5
+/[if lt IE 7] <html class="no-js ie ie6" lang="en">
+/[if IE 7] <html class="no-js ie ie7" lang="en">
+/[if IE 8] <html class="no-js ie ie8" lang="en">
+/[if gt IE 8]><!
+%html.no-js{ lang: 'en' }
+  / <![endif]
+  = render 'head'
+
+  %body{ id: body_tag_id, class: body_tag_class }
+    %header.navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          = render 'navigation'
+
+    #main{ role: 'main' }
+      .container
+        .content
+          .row
+            .span12
+              = bootstrap_flash
+              = yield
+
+    = render 'footer'
+    = render 'javascripts'
+

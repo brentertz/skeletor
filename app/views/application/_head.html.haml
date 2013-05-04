@@ -1,0 +1,9 @@
+%head
+  %meta{ charset: 'utf-8' }
+  %title= content_for?(:title) ? yield(:title) : ENV['site_name']
+  %meta{ content: '', name: 'description' }
+  %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' }
+  = csrf_meta_tags
+  = render 'stylesheets'
+  = javascript_include_tag 'modernizr'
+  = yield :head

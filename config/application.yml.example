@@ -1,0 +1,24 @@
+defaults: &defaults
+  site_name:                # Name of site
+  site_email:               # Site email
+  secret_token:             # Secret token - Generated via `rake secret`
+  session_store_key:        # Session store key
+  basic_auth:               # Should the site be protected with basic authentication?
+  basic_auth_user:          # Basic authentication user name
+  basic_auth_password:      # Basic authentication password
+  action_mailer_host:       # Default host used in mailer URL's
+  bootstrap_user_email:     # Email address for bootstrapped admin user
+  bootstrap_user_password:  # Password for bootstrapped admin user
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+staging:
+  <<: *defaults
+  basic_auth: 'true'
+
+production:
+  <<: *defaults

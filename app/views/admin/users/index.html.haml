@@ -1,0 +1,32 @@
+%header.page-header.clearfix
+  %h3.pull-left Users
+  .actions.pull-right
+    = link_to new_admin_user_path, class: 'btn btn-large btn-success' do
+      %i.icon-plus
+      New User
+
+%table#users.table.table-hover
+  %thead
+    %th id
+    %th email
+    %th created
+    %th
+  %tbody
+    - for user in @users
+      %tr
+        %td= user.id
+        %td
+          = user.email
+        %td= user.created_at
+        %td.actions
+          = link_to edit_admin_user_path(user), class: 'btn btn-mini' do
+            %i.icon-edit
+            Edit
+          - if user.id == @current_user.id
+            %span.label That's you!
+          - else
+            = link_to admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' do
+              %i.icon-remove
+              Delete
+
+= will_paginate @users, renderer: BootstrapPagination::Rails

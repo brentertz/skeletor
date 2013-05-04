@@ -1,0 +1,11 @@
+%a.btn.btn-navbar{ "data-target" => ".nav-collapse", "data-toggle" => "collapse" }
+  %span.icon-bar
+  %span.icon-bar
+  %span.icon-bar
+=link_to ENV['site_name'], root_url, class: 'brand'
+.nav-collapse.collapse
+  %ul.nav
+    = nav_link 'Home', admin_path
+    = nav_link 'Users', admin_users_path
+  - if current_user
+    = render 'user_menu'

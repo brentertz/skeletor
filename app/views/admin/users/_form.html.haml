@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @user] do |f|
+  = f.input :email, autofocus: true
+  = f.input :password
+  = f.input :password_confirmation, label: 'Confirm Password', as: 'password'
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to 'Cancel', admin_users_path, class: 'btn'
+
