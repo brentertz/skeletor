@@ -6,7 +6,6 @@ describe User do
 
     it { should validate_presence_of :email }
     it { should validate_uniqueness_of :email }
-    it { should validate_format_of :email }
   end
 
   describe "authentication" do
